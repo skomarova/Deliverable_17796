@@ -67,8 +67,4 @@ public class GroupOfCards {
 
     }
 
-    public ArrayList<PlayingCard> deal(int from, int to) {
-        return (ArrayList<PlayingCard>) cards.subList(from, to);
-    }
-
 }//end class
