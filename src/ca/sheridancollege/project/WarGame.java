@@ -33,6 +33,9 @@ public class WarGame extends Game{
             i++;
             pileTwo.addCard(deck.getCard(i));
         }
+        while(pileOne.getSize() <= 0 || pileTwo.getSize() <= 0){
+            
+        }
     }
 
     @Override
