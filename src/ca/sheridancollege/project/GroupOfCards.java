@@ -26,14 +26,15 @@ public class GroupOfCards {
         cards = new ArrayList();
     }
 
-//    /**
-//     * A method that will get the group of cards as an ArrayList
-//     * @return the group of cards.
-//     */
-//    public ArrayList<RegularCard> showCards()
-//    {
-//        return cards;
-//    }
+    /**
+     * A method that will get the group of cards as an ArrayList
+     * @return the group of cards.
+     */
+    public ArrayList<PlayingCard> showCards()
+    {
+        return cards;
+    }
+    
     public void addCard(PlayingCard c) {
         cards.add(c);
 
