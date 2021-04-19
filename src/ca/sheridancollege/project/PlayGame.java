@@ -4,8 +4,6 @@
     Program: Computer Programmer
     Date: April 19, 2021
 
-    Description:
-    This program simulates “War”, a two-person game that uses a deck of playing cards.
 */
 
 package ca.sheridancollege.project;
@@ -13,7 +11,7 @@ package ca.sheridancollege.project;
 import java.util.Scanner;
 
 /**
- * This class +++Insert Description Here+++
+ * This class simulates “War”, a two-person game that uses a deck of playing cards.
  *
  * @author Svetlana Komarova
  */
@@ -41,7 +39,6 @@ public class PlayGame {
         
         System.out.println("Play the '" + name + "'!\n");
         
-
         WarGame myGame = new WarGame(name);
         
         myGame.play();
