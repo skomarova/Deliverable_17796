@@ -3,6 +3,7 @@ package ca.sheridancollege.project;
 /**
  * This class represents a playing card - child of class Card
  * @author Svetlana Komarova
+ * @modified by Nathan Chan, Rajbir Saini
  *
  */
 public class PlayingCard extends Card {

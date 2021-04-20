@@ -14,6 +14,7 @@ import java.util.Scanner;
  * This class simulates “War”, a two-person game that uses a deck of playing cards.
  *
  * @author Svetlana Komarova
+ * @modified by Nathan Chan, Rajbir Saini
  */
 public class PlayGame {
 

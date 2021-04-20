@@ -6,6 +6,7 @@ import java.util.LinkedList;
  * This class represents a pile of playing cards
  *
  * @author Svetlana Komarova - April 16, 2021
+ * @modified by Nathan Chan, Rajbir Saini
  *
  */
 public class Pile {
