@@ -37,7 +37,7 @@ public class PlayGame {
         System.out.print("Enter a game name:");
         String name = in.nextLine();
         
-        System.out.println("Play the '" + name + "'!\n");
+        System.out.println("Play '" + name + "'!\n");
         
         WarGame myGame = new WarGame(name);
         
