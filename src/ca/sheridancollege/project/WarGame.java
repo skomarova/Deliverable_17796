@@ -4,7 +4,7 @@ package ca.sheridancollege.project;
  * This class implements the rules applied to the game of war
  *
  * @author Svetlana Komarova
- * @modified by Nathan Chan, Rajbir Saini
+ * @modified by Nathan Chan, Rajbir Saini - April 19,2021
  *
  */
 public class WarGame extends Game {
