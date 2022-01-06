@@ -3,8 +3,7 @@ package ca.sheridancollege.project;
 /**
  * This class implements the rules applied to the game of war
  *
- * @author Svetlana Komarova
- * @modified by Nathan Chan, Rajbir Saini - April 19,2021
+ * @author Svetlana Komarova - April 19, 2021
  *
  */
 public class WarGame extends Game {
@@ -17,6 +16,9 @@ public class WarGame extends Game {
 
     @Override
     public void play() {
+        
+        String name1 = this.getPlayers().get(0).getPlayerID();
+        String name2 = this.getPlayers().get(1).getPlayerID();
 
         GroupOfCards warDeck = new GroupOfCards(DECK_SIZE);
         Pile pileOne = new Pile();
@@ -37,13 +39,10 @@ public class WarGame extends Game {
             pileTwo.addCard(warDeck.getCard(i));
         }
 
-        PlayingCard c1 = new PlayingCard();
-        PlayingCard c2 = new PlayingCard();
-
         while (true) { //!(pileOne.noMoreCards() || pileTwo.noMoreCards()
 
-            c1 = pileOne.popCard();
-            c2 = pileTwo.popCard();
+            PlayingCard c1 = pileOne.popCard();
+            PlayingCard c2 = pileTwo.popCard();
 
             //each player place one card face up
             if (!(c1.isFaceUp)) {
@@ -54,21 +53,21 @@ public class WarGame extends Game {
             }
 
             //display the face up card
-            System.out.println("Player 1 plays card is " + c1);
-            System.out.println("Player 2 plays card is " + c2);
+            System.out.println( name1 +" plays card is " + c1);
+            System.out.println( name2 + " plays card is " + c2);
 
             //rank comparation between two cards
             if (c1.beats(c2)) { //(c1.getRank() > c2.getRank()){//if player 1 win
                 pileOne.addCard(c1);
                 pileOne.addCard(c2);  //higher rank wins both cards and 
 
-                System.out.println("PLayer 1 wins the round\n");
+                System.out.println( name1 +" wins the round\n");
             }//end if
             else if (c2.beats(c1)) {//if(c1.getRank() < c2.getRank()){//if player 2 win 
                 pileTwo.addCard(c2);
                 pileTwo.addCard(c1);
 
-                System.out.println("PLayer 2 wins the round\n");
+                System.out.println( name2 +" wins the round\n");
             }//end else if
             else { //war happens when both cards' rank matched
                 System.out.println("WAR!!!");
@@ -95,8 +94,8 @@ public class WarGame extends Game {
                             war2.getCard(x).flipCard();
                         }
 
-                        System.out.println("War card for player1 is " + war1.getCard(x).toString()
-                                + "\nWar card for player2 is " + war2.getCard(x).toString());
+                        System.out.println("War card for " + name1 + " is " + war1.getCard(x).toString()
+                                + "\nWar card for " + name2 + " is " + war2.getCard(x).toString());
                     }
 
                 }//end for
@@ -110,8 +109,8 @@ public class WarGame extends Game {
                     if (!(war2.getLastCard().isFaceUp)) {
                         war2.getLastCard().flipCard();
                     }
-                    System.out.println("Top 'war' card for player1 is " + war1.getLastCard().toString());
-                    System.out.println("Top 'war' card for player2 is " + war2.getLastCard().toString());
+                    System.out.println("Top 'war' card for " + name1 +" is " + war1.getLastCard().toString());
+                    System.out.println("Top 'war' card for " + name2 + " is " + war2.getLastCard().toString());
 
                     //if player 1 wins the war round
                     if (war1.getLastCard().beats(war2.getLastCard())) {
@@ -121,7 +120,7 @@ public class WarGame extends Game {
                             pileOne.addCard(war2.removeLastCard());
                         }
                         pileOne.addCard(c2);
-                        System.out.println("Player 1 wins the war round\n");
+                        System.out.println( name1 + " wins the war round\n");
                         //otherwise player 2 wins the war round
                     } else if (war2.getLastCard().beats(war1.getLastCard())) {
                         for (int i = 0; i < 4; i++) {
@@ -130,7 +129,7 @@ public class WarGame extends Game {
                             pileTwo.addCard(war2.removeLastCard());
                         }
                         pileOne.addCard(c2);
-                        System.out.println("Player 2 wins the 'war' round\n");
+                        System.out.println( name2 + " wins the 'war' round\n");
                     } else {
                         System.out.println("War again!!!");
                         // repeat war
@@ -142,11 +141,11 @@ public class WarGame extends Game {
             //game over either one player runs out of card(deck size is 0)
             if (pileOne.getSize() == 0) {
                 
-                declareWinner(2, 1);
+                declareWinner(1, 0);
                 break;
             } else if (pileTwo.getSize() == 0) {
                 
-                declareWinner(1, 2);
+                declareWinner(0, 1);
 
                 break;
             }
@@ -155,8 +154,11 @@ public class WarGame extends Game {
 
     @Override
     public void declareWinner(int winner, int lost) {
+          
+        String w = this.getPlayers().get(winner).getPlayerID();
+        String l = this.getPlayers().get(lost).getPlayerID();
 
-        System.out.println("Game over\nPlayer " + lost + " is out of cards\nPlayer " + winner + " wins the game");
+        System.out.println("Game over\n" + l  + " is out of cards\n" + w + " wins the game");
 
     }
 }
